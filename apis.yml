@@ -1,17 +1,35 @@
 aid: connectrn
 name: ConnectRN
-description: 'ConnectRN is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'connectRN is a Waltham, Massachusetts based per-diem (PRN) healthcare
+  staffing marketplace that connects nurses, CNAs and allied clinicians with open shifts
+  at hospitals, home health and hospice agencies, and skilled nursing facilities across
+  the United States. Clinicians browse and claim shifts through the connectRN mobile
+  app with no minimum commitment, no required weekends or holidays, and same-day pay;
+  facilities post shifts, auto-backfill open coverage and approve timesheets through
+  a web platform at app.connectrn.com. In April 2026 connectRN merged with SnapCare,
+  combining connectRN''s PRN clinician community with SnapCare''s Booker workforce
+  technology platform. connectRN operates a public status page but publishes no public
+  developer program, API documentation, or machine-readable API contract; its API host
+  api.connectrn.com serves the first-party mobile and web applications only.'
 url: https://raw.githubusercontent.com/api-evangelist/connectrn/refs/heads/main/apis.yml
+image: https://cdn.prod.website-files.com/689ccaaf2d508bcba0f8168a/689cccfba48ff91d2ddeacfc_LogoMark_Registered_Purple.png
 x-type: company
 x-source: harvest:secondary-market
 x-tier: stub
 x-tier-reason: harvest
+x-parent: SnapCare
 specificationVersion: '0.20'
 created: '2026-08-09'
 modified: '2026-08-09'
 tags:
 - Company
+- Healthcare
+- Health IT
+- Staffing
+- Nursing
+- Workforce Management
+- Marketplace
+- Mobile App
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +37,56 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/connectrn-domain-security.yml
 - type: Website
+  url: https://www.connectrn.com/
+- type: Profile
   url: https://forgeglobal.com/connectrn_stock/
+- type: Blog
+  url: https://www.connectrn.com/blog
+- type: SignUp
+  url: https://www.connectrn.com/sign-up
+- type: Login
+  url: https://app.connectrn.com/
+- type: TermsOfService
+  url: https://www.connectrn.com/main-services-agreement
+- type: PrivacyPolicy
+  url: https://www.connectrn.com/privacy-policy
+- type: GitHubOrganization
+  url: https://github.com/connectRN
+- type: StatusPage
+  url: https://status.connectrn.com/
+- type: Lifecycle
+  url: lifecycle/connectrn-lifecycle.yml
+- type: Packages
+  url: packages/connectrn-packages.yml
+- type: LLMsTxt
+  url: llms/connectrn-llms.txt
+x-enrichment:
+  date: '2026-08-09'
+  status: minimal
+  artifacts_added: 5
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    connectRN ships only end-user products — a clinician mobile app and a facility
+    web app at app.connectrn.com — and its application backend api.connectrn.com
+    answers a plain-text `NotFound` 404 on every anonymously probed path including
+    `/`, `/v1`, `/openapi.json` and `/graphql`; there is no developer portal, no
+    docs host (developer/developers/docs.connectrn.com do not resolve), and no
+    spec anywhere on the site or in the connectRN GitHub organization.
+  evidence:
+    - url: https://api.connectrn.com/openapi.json
+      status: 404
+    - url: https://api.connectrn.com/
+      status: 404
+    - url: https://www.connectrn.com/llms.txt
+      status: 404
+    - url: https://api.connectrn.com/.well-known/agent-card.json
+      status: 404
+    - url: https://connectrn.com/sitemap.xml
+      status: 200
+  checked: '2026-08-09'

@@ -1,0 +1,59 @@
+generated: '2026-08-09'
+method: searched
+source: >-
+  https://status.connectrn.com/ (public PagerDuty status page, status_page_id
+  P04HRTQ, business service "Clinician Experience"); https://www.connectrn.com/
+  and https://www.connectrn.com/main-services-agreement searched for a
+  versioning, deprecation or SLA policy — none published.
+status_page:
+  url: https://status.connectrn.com/
+  provider: PagerDuty Status Pages
+  visibility: public
+  status_page_id: P04HRTQ
+  business_services:
+    - name: Clinician Experience
+      status_page_service_id: P6YUHQK
+  subscriptions:
+    email: true
+    slack: true
+    webhook: true
+    sms: false
+  http_status: 200
+versioning:
+  scheme: null
+  mechanism: null
+  docs: null
+  notes: >-
+    connectRN publishes no public API and therefore no public API versioning
+    policy. The first-party application host api.connectrn.com answers a
+    plain-text `NotFound` on every probed path, including `/`, `/v1`, `/v2` and
+    `/api`, so no version prefix could be observed anonymously.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: >-
+    No deprecation or sunset policy is published. RFC 8594 Sunset/Deprecation
+    headers could not be checked — there is no publicly reachable API operation
+    to observe them on.
+sla:
+  url: null
+  public_uptime_target: null
+  notes: >-
+    No public uptime SLA. Facility terms are governed by the Main Services
+    Agreement (https://www.connectrn.com/main-services-agreement), which does
+    not publish a numeric availability commitment.
+changelog:
+  url: null
+  notes: >-
+    No dated product or API changelog is published. Product news appears as
+    editorial posts on https://www.connectrn.com/blog.
+corporate_lifecycle:
+  event: merger
+  date: '2026-04-29'
+  with: SnapCare (https://www.snapcare.com/)
+  evidence: https://www.connectrn.com/blog/merger-announcement
+  notes: >-
+    connectRN and SnapCare announced a merger on 2026-04-29. SnapCare's Booker
+    workforce platform is the combined company's technology surface; both
+    connectrn.com and snapcare.com remain live and separately operated as of
+    this probe.

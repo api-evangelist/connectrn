@@ -1,0 +1,93 @@
+generated: '2026-08-09'
+method: probed
+source: >-
+  Live GET probes of the /.well-known/ discovery surface on every connectRN host
+  resolved from apis.yml and DNS (www.connectrn.com, api.connectrn.com,
+  app.connectrn.com), 2026-08-09.
+description: >-
+  No connectRN host serves a real /.well-known/ document. Nothing was saved
+  verbatim and NO `WellKnown` / `SecurityTxt` / `APICatalog` pointer is wired in
+  apis.yml — there is nothing to point at. This file exists to record the probe
+  evidence and, importantly, the SOFT-404 trap on app.connectrn.com: that host
+  is a single-page app whose catch-all answers HTTP 200 with the same 1,582-byte
+  `text/html` SPA shell for arbitrary /.well-known/ paths. A 200 there is not
+  evidence of a document; the control comparison is that
+  /.well-known/agent-card.json and /llms.txt on the same host return 404 with a
+  zero-length body while /.well-known/openid-configuration returns 200 HTML.
+found: []
+hosts:
+  - host: https://api.connectrn.com
+    note: >-
+      AWS ALB origin. Returns HTTP 404 with the plain-text body `NotFound` on
+      every path probed, including `/` — a clean control, no soft-404 risk.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://connectrn.com
+    note: >-
+      Webflow-hosted marketing site. Serves a 404 with the body
+      "Invalid .well-known request" for every /.well-known/ path.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /llms.txt
+        status: 404
+      - path: /openapi.json
+        status: 404
+  - host: https://app.connectrn.com
+    note: >-
+      React SPA (CloudFront). SOFT-404: several /.well-known/ paths answer 200
+      with an HTML SPA shell, not a document. Rejected — content_type text/html,
+      body is the app shell.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 200
+        content_type: text/html
+        saved: false
+        rejected: soft-404 SPA shell, not a document
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        content_type: text/html
+        saved: false
+        rejected: soft-404 SPA shell, not a document
+      - path: /.well-known/api-catalog
+        status: 200
+        content_type: text/html
+        saved: false
+        rejected: soft-404 SPA shell, not a document
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /llms.txt
+        status: 404
+      - path: /openapi.json
+        status: 404

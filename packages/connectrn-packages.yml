@@ -1,0 +1,79 @@
+generated: '2026-08-09'
+method: searched
+source: >-
+  https://registry.npmjs.org/-/v1/search?text=connectrn,
+  https://registry.npmjs.org/crn-web, https://pypi.org/pypi/connectrn/json (404),
+  https://api.github.com/orgs/connectRN/repos
+description: >-
+  connectRN publishes no API client library. There is no public API to build one
+  against. The single first-party package found on any public registry is an
+  internal React component library. The company's public GitHub organization
+  holds Go utilities and client SDKs for OTHER vendors' APIs (Nursys, Dropbox
+  Sign) — those are consumers of third-party APIs, not connectRN SDKs, and are
+  recorded below under `not_sdks` so a later round does not mistake them for one.
+packages:
+  - language: javascript
+    registry: npm
+    name: crn-web
+    url: https://www.npmjs.com/package/crn-web
+    install: npm install crn-web
+    version: 48.0.0
+    license: MIT
+    official: true
+    kind: ui-components
+    description: connectRN Web Components Library — React/MUI component library.
+    evidence: >-
+      registry.npmjs.org/crn-web declares `author.name: "connectRN"` and
+      `description: "connectRN Web Components Library"`.
+    notes: >-
+      Internal design-system library, not an API SDK. 80 versions published
+      between 2022-05-23 and 2022-07-19; no publishes since. No README docs, no
+      repository or homepage field. Deliberately NOT wired as `type: SDKs` — it
+      is not a client for a connectRN API.
+sdk_count: 0
+not_sdks:
+  - repo: https://github.com/connectRN/go-nursys
+    language: go
+    note: Go client SDK for the third-party Nursys nurse-licensure API.
+  - repo: https://github.com/connectRN/go-hellosign
+    language: go
+    note: Go client SDK for a subset of the Dropbox Sign (HelloSign) API.
+  - repo: https://github.com/connectRN/go-airship
+    language: go
+    note: Go SDK for the third-party Urban Airship push API.
+  - repo: https://github.com/connectRN/envault
+    language: go
+    note: Internal CLI that runs processes with secrets from AWS Secrets Manager.
+  - repo: https://github.com/connectRN/go-mysqldump
+    language: go
+    note: Fork/utility for SQL dumps in Go.
+  - repo: https://github.com/connectRN/goheif
+    language: go
+    note: Fork of a HEIF/HEIC decoder.
+registries_checked:
+  - registry: npm
+    query: connectrn
+    result: 1 first-party hit (crn-web)
+  - registry: PyPI
+    query: connectrn
+    result: 404
+  - registry: pkg.go.dev / GitHub org
+    query: github.com/connectRN
+    result: 7 public repos, none a connectRN API client
+  - registry: Maven Central
+    query: https://search.maven.org/solrsearch/select?q=connectrn
+    result: numFound 0
+  - registry: NuGet
+    query: https://azuresearch-usnc.nuget.org/query?q=connectrn
+    result: totalHits 0
+  - registry: RubyGems
+    query: https://rubygems.org/api/v1/search.json?query=connectrn
+    result: empty array
+  - registry: crates.io
+    query: https://crates.io/api/v1/crates?q=connectrn
+    result: total 0
+  - registry: Packagist
+    query: https://packagist.org/search.json?q=connectrn
+    result: >-
+      results returned, none first-party (fuzzy matches on unrelated "connect"
+      packages such as shippo/shippo-php)

@@ -1,0 +1,38 @@
+generated: '2026-08-09'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.connectrn.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  3 18:45:32 2026 GMT
+  hsts: false
+- host: api.connectrn.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Mar 17 23:59:59 2027 GMT
+  hsts: false
+  http_status: 404
+  note: First-party application API host (AWS ALB). Returns a plain-text `NotFound`
+    body on every probed path including `/`; no public documentation or contract.
+- host: app.connectrn.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Mar 17 23:59:59 2027 GMT
+  hsts: true
+  hsts_header: max-age=31536000; includeSubDomains
+  http_status: 200
+- host: status.connectrn.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Jan 24 23:59:59 2027 GMT
+  hsts: true
+  hsts_header: max-age=31536000
+  http_status: 200
+domains:
+- domain: connectrn.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine
