@@ -1,0 +1,11 @@
+{
+  "repo": "connectrn",
+  "feeds": [
+    {
+      "source": "https://forgeglobal.com/connectrn_stock/",
+      "error": "HTTPError"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-08-15T12:22:01Z"
+}
