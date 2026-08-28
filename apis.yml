@@ -12,6 +12,17 @@ description: 'connectRN is a Waltham, Massachusetts based per-diem (PRN) healthc
   developer program, API documentation, or machine-readable API contract; its API host
   api.connectrn.com serves the first-party mobile and web applications only.'
 url: https://raw.githubusercontent.com/api-evangelist/connectrn/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://cdn.prod.website-files.com/689ccaaf2d508bcba0f8168a/689cccfba48ff91d2ddeacfc_LogoMark_Registered_Purple.png
 x-type: company
 x-source: harvest:secondary-market
